@@ -1,271 +1,158 @@
-html{
+
+*, *::before, *::after{
     box-sizing: border-box;
 }
 
 body{
+    background: url(./img/notes.jpg);
+    object-fit: cover;
+    overflow: hidden;
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    height: 100vh;
     align-items: center;
-    background-image:url(img/notes.jpg);
+    font-size: 16px;
+
 }
 
-#piano{
-    height: 290px;
-    padding: 90px 30px 0 30px;
+.piano{
+    display: flex;
+    position: relative;
+    height: 520px;
+    padding: 110px 30px 0 30px;
     background-color: #292322;
-    border:1px solid #363434;
-    border-radius: 10px;
-    gap: 30px;
 }
 
-.keys{
+.info{
+  position:absolute;
+  top: 0;
+  color: aliceblue;
+}
+
+.key{
+    height: calc(var(--width) * 4);
+    width: var(--width);
+    border-radius: 0 0 6px 6px;
     position: relative;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px -30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px -18px 36px -18px inset;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px -30px 60px -12px inset, rgba(0, 0, 0, 0.4) 0px -18px 36px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.4df) 0px 18px 36px -18px inset;
 }
 
-.white-keys{
+.white{
+    --width: 100px;
+    background-color: white;
+    border: 1px solid #333;
+}
+
+.white.active{
+    background: #ccc;
+}
+
+.black{
+    --width: 60px;
+    background-color: black;
+    margin-left: calc(var(--width) / -2);
+    margin-right: calc(var(--width)/ -2);
+    color: #ccc;
+    z-index: 2;
+}
+
+.black.active{
+    background: #333;
+}
+
+.text{
     display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: .3em;
+    font-weight: 700;
 }
 
-.black-keys{
-    position: relative;
-    display: flex;
-}
-
-.white-key{
-    width: 68px;
-    height: 280px;
-    background-color: #fff;
-    border-radius: 0 0 5px 5px;
-    border:  solid #000 2px;
-    box-sizing: border-box;
-}
-
-.black-key{
-    width: 38px;
-    height: 160px;
-    border-radius: 0 0 5px 5px;
-    box-sizing: border-box ;
-    position: absolute;
-    background-color: #000;
-}
-
-.black-key:nth-child(1){
-    left: 48px;
-}
-
-.black-key:nth-child(2){
-    left: 117px;
-}
-
-.black-key:nth-child(3){
-    left: 253px;
-}
-
-.black-key:nth-child(4){
-    left: 320px;
-}
-
-.black-key:nth-child(5){
-    left: 389px;
-
-}
-.black-key:nth-child(6){
-    left: 525px;
-}
-
-.black-key:nth-child(7){
-    left: 594px;
-}
-
-.black-key:nth-child(8){
-    left: 662px;
-}
-
-.black-key:nth-child(9){
-    left: 797px;
-}
-
-.black-key:nth-child(10){
-    left: 865px;
-}
+/* @media */
 
 
-@media(max-width:1400px){
 
-    #piano{
-        max-height:217px;
-        padding: 67px 22px 0 22px;
+@media(max-width:1460px){
+
+    .piano{
+        height:450px;
+        padding: 80px 13px 0 13px;
     }
+    .white{
+        --width: 90px;
+    }
+    .black{
+        --width: 50px;
+    }
+    .text{
+        font-weight: 600;
+        font-size: 1em;
+    }
+    .info{
+        font-size: 1.2em;
+    }
+}
+@media(max-width:1200px){
 
-    .white-key{
-        width: 51px;
-        height: 210px;
-        border:  solid #000 1px;
+    .piano{
+        height:390px;
+        padding: 70px 11px 0 11px;
     }
-    
-    .black-key{
-        width: 28px;
-        height: 120px;
+    .white{
+        --width: 78px;
     }
-
-    .black-key:nth-child(1){
-        left: 36px;
+    .black{
+        --width: 44px;
     }
-    
-    .black-key:nth-child(2){
-        left: 87px;
+    .text{
+        font-weight: 500;
+        font-size: 0.8em;
     }
-    
-    .black-key:nth-child(3){
-        left: 189px;
-    }
-    
-    .black-key:nth-child(4){
-        left: 240px;
-    }
-    
-    .black-key:nth-child(5){
-        left: 292px;
-    
-    }
-    .black-key:nth-child(6){
-        left: 394px;
-    }
-    
-    .black-key:nth-child(7){
-        left: 445px;
-    }
-    
-    .black-key:nth-child(8){
-        left: 496px;
-    }
-    
-    .black-key:nth-child(9){
-        left: 598px;
-    }
-    
-    .black-key:nth-child(10){
-        left: 649px;
+    .info{
+        font-size: 1em;
     }
 }
 
-@media(max-width:900px){
+@media(max-width:960px){
 
-    #piano{
-        max-height: 145px;
-        padding: 45px 15px 0 15px;
+    .piano{
+        height: 256px;
+        padding: 56px 10px 0 10px;
     }
-
-    .white-key{
-        width: 34px;
-        height: 140px;
-        border:  solid #000 1px;
+    .white{
+        --width: 48px;
     }
-    
-    .black-key{
-        width: 19px;
-        height: 80px;
+    .black{
+        --width: 30px;
     }
-    .black-key:nth-child(1){
-        left: 24px;
+    .text{
+        font-weight: 400;
+        font-size: 0.6em;
     }
-    
-    .black-key:nth-child(2){
-        left: 58px;
-    }
-    
-    .black-key:nth-child(3){
-        left: 126px;
-    }
-    
-    .black-key:nth-child(4){
-        left: 160px;
-    }
-    
-    .black-key:nth-child(5){
-        left: 195px;
-    
-    }
-    .black-key:nth-child(6){
-        left: 262px;
-    }
-    
-    .black-key:nth-child(7){
-        left: 297px;
-    }
-    
-    .black-key:nth-child(8){
-        left: 331px;
-    }
-    
-    .black-key:nth-child(9){
-        left: 398px;
-    }
-    
-    .black-key:nth-child(10){
-        left: 432px;
+    .info{
+        font-size: .8em;
     }
 }
 
 @media(max-width:600px){
 
-    #piano{
-        max-height: 72px;
-        padding: 22px 7px 0 7px;
+    .piano{
+        height: 200px;
+        padding: 52px 8px 0 8px;
     }
-
-    .white-key{
-        width: 17px;
-        height: 70px;
-        border:  solid #000 1px;
+    .white{
+        --width: 36px;
     }
-    
-    .black-key{
-        width: 10px;
-        height: 40px;
+    .black{
+        --width: 22px;
     }
-    .black-key:nth-child(1){
-        left: 12px;
+    .text{
+        font-weight: 400;
+        font-size: 0.5em;
     }
-    
-    .black-key:nth-child(2){
-        left: 29px;
-    }
-    
-    .black-key:nth-child(3){
-        left: 63px;
-    }
-    
-    .black-key:nth-child(4){
-        left: 80px;
-    }
-    
-    .black-key:nth-child(5){
-        left: 97px;
-    
-    }
-    .black-key:nth-child(6){
-        left: 131px;
-    }
-    
-    .black-key:nth-child(7){
-        left: 148px;
-    }
-    
-    .black-key:nth-child(8){
-        left: 165px;
-    }
-    
-    .black-key:nth-child(9){
-        left: 199px;
-    }
-    
-    .black-key:nth-child(10){
-        left: 216px;
+    .info{
+        font-size: .5em;
     }
 }
