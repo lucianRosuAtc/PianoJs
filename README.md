@@ -1,6 +1,5 @@
 # PianoJs
  Piano that use 24 notes(sounds)
-
 You can find this online at: https://my-piano-js-13a.netlify.app/
 
 
